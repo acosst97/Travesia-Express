@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Administrador</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="shortcut icon" href="img/logo.jpeg">
+    <link rel="stylesheet" href="css/style22.css">
+    <link rel="stylesheet" href="main.css">  
+    <link rel="stylesheet" type="text/css" th:href="@{/css/datatables.min.css}"/>
+        <!--datables estilo bootstrap 4 CSS-->
+        <link rel="stylesheet"  type="text/css" th:href="@{/css/dataTables.bootstrap4.min.css}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">  
+    <link rel="stylesheet" href="bootstrap1/css/bootstrap1.min.css">
+    <link rel="stylesheet" href="css/style5.css">
+<link rel="stylesheet" href="estilos.css">
+    
+    <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand container-fluids">
+            <h2><span > <img width="70%" height="70%" src="img/logo.jpeg" alt=""></span> 
+        </div><br>
+        <!--Secciones-del-tablero-->
+        <div class="sidebar-menu">
+            <ul>
+                 <li>
+                    <a th:href="@{/inicioDash}" ><span class="las la-home"></span>
+                    <span>Inicio</span></a>
+                </li>
+                <li>
+                  <a th:href="@{/listarventas}" ><span class="las la-history"></span>
+                    <span>Ventas</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstUsuario}"><span class="las la-user"></span>
+                    <span>Usuarios</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstservicio2}" class="active"><span class="las la-user-injured"></span>
+                    <span>Servicios</span></a>
+                </li>
+                
+              <li>
+                    <a th:href="@{/vehiculos}" ><span class="las la-history"></span>
+                    <span>Vehiculos</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/of1}" ><span class="las la-user-circle"></span>
+                    <span>Fidelizacion</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstpqrs}"><span class="las la-phone"></span>
+                    <span>PQRS</span></a>
+                </li>
+                <li>
+                    <a  th:href="@{/recursoshumanos}"><span class="las la-user"></span>
+                    <span>Recursos Humanos</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Nuestros Servicios
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Buscar aquí" />
+            </div>
+            <div class="user-wrapper">
+                <img src="img/chofe.jpg" width="40px" height="40px" alt="">
+                <div>
+                    <h4>adminsitrador </h4> 
+                    <small ><a th:href="@{/index}">Cerrar Sesion</a></small>
+                </div>
+            </div>
+        </header>
+
+        
+         <main>
+            <div class="cards col-xl-12 col-lg-12 d-flex">
+                <div class="card-single col-xl-10 col-lg-12 d-flex">
+                    <div>
+                        <h1>Tabla de servicios</h1>
+						
+						<br>
+                    </div>
+                    
+                </div>
+            </div>
+            
+         
+        
+
+
+	<br>
+	<br>
+	
+
+        <!--Ejemplo tabla con DataTables-->
+    <div class="table-responsive" >
+				<div class="projects">
+					<div class="card">
+						<br>
+						<div class="card-header">
+						<!--  _<h1>Tabla de servicios</h1>-->
+						<br>
+						
+					
+                     <!--   <center><a th:href="@{/regreportes}"><button type="button" class="btn btn-warning">Añadir nuevo reporte</button></a></center> -->
+        
+
+						</div>
+
+
+						<div class="table-responsive">
+							<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+								<thead>
+									<tr>
+									    <td>idservicio</td>
+										<td>fecha</td>
+										<td>ofertas</td>
+										<td>nombre del servicio</td>
+										<td>precio</td>
+										
+										
+										
+
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="s : ${lstServicios}">
+									<td th:text="${s.idservicio}"></td>
+									<td th:text="${s.fechaservicio}"></td>
+									<td th:text="${s.ofertas}"></td>									
+									
+									<td th:text="${s.nomservicio}"></td>
+									<td th:text="${s.precio}"></td>
+									
+									<!-- <td>				
+								    <a  class="btn btn-warning" th:href="@{/modificarreporte(idreporte=${reporteItem.idreporte})}" >  Modificar</a></td>
+								    
+									   <td><a 
+										th:href="@{/editar/}+${reporteItem.idreporte}">
+										editar	<i class="bi bi-pencil-square  btn btn-warning">
+									</a></i> 
+									</td> -->  
+								    
+												
+										
+								</tbody>
+							</table>
+						</div>
+
+
+					</div>
+				</div>
+				
+	 </div>
+	 
+	  </main>
+
+    <!-- jQuery, Popper.js, Bootstrap JS -->
+<script src="js/jquery1/jquery-3.3.1.min.js"></script>
+<script src="js/popper1/popper.min.js"></script>
+<script src="js/bootstrap/js/bootstrap.min.js"></script>
+  
+<!-- datatables JS -->
+<script  src="js/datatables.min.js"></script>  
+ 
+<!-- para usar botones en datatables JS -->  
+<script src="js/dataTables.buttons.min.js"></script>
+<script src="js/jszip.min.js"></script>
+<script src="js/pdfmake.min.js"></script>
+<script src="js/vfs_fonts.js"></script>
+<script src="js/buttons.html5.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<!-- código JS propìo-->    
+<script type="text/javascript" src="js/main.js"></script>  
+
+        
+
+        
+               
+
+</body>
+
+</html>

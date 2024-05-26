@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <!-- basic -->
+        <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Travesia Express</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" th:href="@{/css/style.css}">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="shortcut icon" href="images/logo.png">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      <div class="loader_bg">
+         <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+      </div>
+      <!-- end loader --> 
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="head_top">
+               <div class="container">
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                       <div class="top-box">
+                        <ul class="sociel_link">
+                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                     </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                       <div class="top-box">
+                         <p>Viaja con Travesia Express, te esperamos </p>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo"> <a href="index.html"><img src="images/logo.png" width="50%" height="50%" alt="logo"/></a> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-9 col-lg-7 col-md-9 col-sm-9">
+                  <div class="menu-area">
+                     <div class="limit-box">
+                        <nav class="main-menu">
+                           <ul class="menu-area-main">
+                               <li class="active"> <a th:href="@{index}">Inicio</a> </li>
+                              <li ><a th:href="@{/empleos}">Empleos</a> </li>
+                              <li> <a th:href="@{/listarServicios}">Servicio</a> </li>
+                              <li> <a th:href="@{/lstvehiculos}">vehiculo</a> </li>
+                              <li> <a th:href="@{/registrarpqrs}">Ayuda Usuario</a> </li>
+                               
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- end header inner --> 
+      </header>
+      <!-- end header -->
+       
+<!-- encabesado-->
+       <div class="brand_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <h2>Registro Aspirante</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    
+
+    
+
+
+   
+    <!-- hoja de vida -->
+    
+      <div class="contact">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                  <div class="brand_color">
+                     <div class="container">
+                         <div class="row">
+                             <div class="col-md-12">
+                                 <div class="titlepage titlepage2">
+                                     <h2>Datos Personales</h2>
+                                 </div>
+                             </div>
+                         </div>
+                     </div>
+                    <form class="main_form" method="POST" th:action="@{/guardarExperiencia}" th:object="${experiencia}">
+                        <div class="row">
+                            <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12" >
+                            
+                            	
+                               
+                               <!-- <div class="row col-xl-12 col-lg-12 col-md-12 col-sm-12" style="margin-right: 0px;" >
+                               </div> -->
+                                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                 	<h5>Usuario</h5>
+                                    <input class="form-control form-control2" placeholder="id Usuario Pagina" type="number"  th:field="*{usuario}" >
+                                </div>
+                                <!-- <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                	<h5>Id Experiencia</h5>
+                                    <input class="form-control form-control2" placeholder="id Experiencia " type="text" th:field="*{idexperiencia}" >
+                                </div> -->
+                                <!-- formulario que busca una opcion en general y la selecciona -->
+                                <div class="col-md-6 " >
+                                 <h5>Empleo o cargo en el que esta interesado</h5>
+                                    <input list="Jugadores" class="form-control form-control2" placeholder="Seleccione Empleo a relizar" th:field="*{cargo}">
+                                    <datalist id="Jugadores">
+                                       <option value="1">conductor</option>
+                                       <option value="2">asesor</option>
+                                       <option value="3">vendedor de tiquetes</option>
+                                       <option value="4">acomodador de equipaje</option>
+                                    </datalist>
+                                </div>
+                                 <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <input class="form-control form-control2" placeholder="Nombres Completos" type="text"  th:field="*{nombres}" >
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <input class="form-control form-control2" placeholder="apellidos Completos" type="text" th:field="*{apellido}" >
+                                </div>
+                                <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <input class="form-control form-control2" placeholder="Correo Electronico" type="text" th:field="*{Correo}" >
+                                </div>
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12" >
+                                    <input class="form-control form-control2" placeholder="Telefono" type="text" th:field="*{telefono}">
+                                </div>
+                                
+                               
+                               
+                                <!--
+                               <div class="row col-xl-2 col-lg-2 col-md-2 col-sm-12 form-control2" >
+                                 
+                                 <span ><img src="img/user.3.png" ></span>
+                                 <div class="align-self-end">
+                                    <input type="file" name="imagensubida" accept="image/png, .jpeg, .jpg, image/gif">
+                                 </div>-->
+                                
+                                
+                               
+                                
+                                <div class="col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                    <h5>Fecha de nacimiento</h5>
+                                    <input class="form-control form-control2" placeholder="Fecha de nacimiento" type="date" th:field="*{fechanacimiento}">
+                                </div>
+                              <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                              	<br>
+                                 <input class="form-control form-control2" placeholder="Lugar de nacimiento" type="text" name="Nacimiento" th:field="*{lugarnacimiento}" >
+                              </div>
+                              <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                 <input class="form-control form-control2" placeholder="Nacionalidad " type="text" th:field="*{nacionalidad}">
+                              </div>
+                              <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                 <input class="form-control form-control2" placeholder="Direccion " type="text" th:field="*{direccion}">
+                              </div>
+                              <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                 <input class="form-control form-control2" placeholder="Ciudad de residencia" type="text" th:field="*{cuidadresidencia}" >
+                              </div>
+                              <div class=" col-lg-6 col-md-4 col-sm-6 col-xs-12">
+                                 <input class="form-control form-control2" placeholder="Años de experiencia " type="number" th:field="*{experiencia}">
+                              </div>
+                              <div class="row col-lg-8 col-md-4 col-sm-6 col-xs-12">
+                                 <div class=" col-md-8">
+                                    <input class="form-control form-control2" placeholder="Licencia de conductor No. " type="number" th:field="*{licenciaconductor}">
+                                 </div>
+                                 <div class=" col-md-4">
+                                    <input class="form-control form-control2" placeholder="Categoria " type="text" th:field="*{categoria}" >
+                                 </div>
+                              </div>
+                              </div>  
+                            </div>
+                              
+                                
+                                 
+                                 
+                                
+                              <div class="col-md-12">
+                                 <div>
+                                    <h5>Documento de Identidad</h5>
+                                 </div>
+                              </div>
+                              
+                              <div class="row col-md-12">
+                                 <div class="col-md-3 ">
+                                    <input type="radio" id="cc" name="cedula" value="Cedula de ciudadania" th:field="*{tipodocumentos}">
+                                    <label for="">Cedula de ciudadania</label><br>
+
+                                    <input type="radio" id="ex" name="Extrangera" value="Extrangera" th:field="*{tipodocumentos}">
+                                    <label for="blue">Extrangera</label>
+                                 </div>
+                                 <div class=" col-md-5">
+                                    <input class="form-control form-control2" placeholder="Ingrese numero " type="number" th:field="*{numerodocumento}">
+                                 </div>
+                                 <div class=" col-md-4">
+                                    <input class="form-control form-control2" placeholder="lugar de expedicion " type="text" th:field="*{lugarexpedicion}">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div>
+                                    <h5>Libreta militar </h5>
+                                 </div>
+                              </div>
+                              <div class="row col-md-12">
+                                 <div class="col-md-3 ">
+                                    <input type="radio" id="Primera" name="Primera" value="Primera Clase" th:field="*{claselibreta}">
+                                    <label for="">Primera Clase</label><br>
+
+                                    <input type="radio" id="Segunda" name="Segunda" value="Segunda Clase" th:field="*{claselibreta}">
+                                    <label for="blue">Segunda Clase</label>
+                                 </div>
+                                 <div class=" col-md-5">
+                                    <input class="form-control form-control2" placeholder="Ingrese numero " type="number"  th:field="*{numerolibreta}">
+                                 </div>
+                                 <div class=" col-md-4">
+                                    <input class="form-control form-control2" placeholder="lugar de expedicion " type="text" th:field="*{lugarexpedicionl}">
+                                 </div>
+                              </div>
+                              <div class="col-md-12">
+                                 <div>
+                                    <h5>Referencias laborales </h5>
+                                 </div>
+                              </div>
+                             
+                             
+                              
+
+
+                            
+                            <div class=" col-md-12">
+                                <button type="submit" class="send"> Enviar </button>
+                            </div>
+                        </div>
+                    </form>
+                <br>
+                <div class="container brand_color">
+                         <div class="row">
+                             <div class="col-xl-9 col-lg-12 d-flex">
+                                 <div class="titlepage titlepage2" >
+                                      <h2>¿No estas registrado? </h2> 
+                                      <h3>regístrate ya</h3>
+                                 </div> 
+                             </div>
+                             <div  class="col-xl-3 col-lg-12 "><br><br><br><br> <a th:href="@{/registrousuarios}"  class="btn btn-primary" >registrarse</a> </div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+
+
+
+
+
+
+
+      <!--  footer --> 
+      <footr>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                     <ul class="sociel">
+                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                     </ul>
+                  </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>contactos</h3>
+                     <ul style="color: #9C9B94;">
+                  <li>hecjgarcia@misena.edu.co</li>
+                  <li>hdacosta10@misena.edu.co</li>
+                  <li>leneanaya@misena.edu.co</li>
+                  <li>joraaguja@misena.edu.co</li>
+               </ul>
+                  </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3 >Informacion adicional</h3>
+                  <h6 style="color: #9C9B94;">En Travesías Express puede encontrar una gran variedad de rutas turísticas. Puedes elegir uno de los destinos turísticos que ofrecemos y comenzar a planificar tus tan anheladas vacaciones ahora.
+                  </h6>
+               </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>Direccion</h3>
+
+                  <h5 style="color: #9C9B94;">Calle 140 #118- 53
+                     
+                  </h5>
+                  </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>Telefono</h3>
+                     <h5 style="color: #9C9B94;">
+                        314 4905189
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+            <div class="copyright">
+               <p>Travesia Express 2021 Todos los derechos reservados </p>
+            </div>
+         
+      </div>
+      </footr>
+      <!-- end footer -->
+      <!-- Javascript files--> 
+      <script src="js/jquery.min.js"></script> 
+      <script src="js/popper.min.js"></script> 
+      <script src="js/bootstrap.bundle.min.js"></script> 
+      <script src="js/jquery-3.0.0.min.js"></script> 
+      <script src="js/plugin.js"></script> 
+      <!-- sidebar --> 
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> 
+      <script src="js/custom.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         $(".zoom").hover(function(){
+         
+         $(this).addClass('transition');
+         }, function(){
+         
+         $(this).removeClass('transition');
+         });
+         });
+         
+      </script> 
+   </body>
+</html>

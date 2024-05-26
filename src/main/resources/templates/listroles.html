@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Administrador</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet"
+	href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="shortcut icon" href="img/logo.jpeg">
+<link rel="stylesheet" href="css/style5.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+	<input type="checkbox" id="nav-toggle">
+	<div class="sidebar">
+		<div class="sidebar-brand container-fluids">
+			<h2>
+				<span> <img width="70%" height="70%" src="img/logo.jpeg"
+					alt=""></span>
+		</div>
+		<br>
+		<!--Secciones-del-tablero-->
+		<div class="sidebar-menu">
+			<ul>
+				<li><a th:href="@{/inicioDash}"><span class="las la-home"></span>
+						<span>Inicio</span></a></li>
+				<li><a th:href="@{/listarventas}"><span
+						class="las la-history"></span> <span>Ventas</span></a></li>
+				<li><a th:href="@{/lstUsuario}" class="active"><span
+						class="las la-user"></span> <span>Usuarios</span></a></li>
+				<li><a th:href="@{/lstservicio2}"><span
+						class="las la-user-injured"></span> <span>Servicios</span></a></li>
+
+				<li><a th:href="@{/vehiculos}"><span
+						class="las la-history"></span> <span>Vehiculos</span></a></li>
+				<li><a th:href="@{/of1}"><span class="las la-user-circle"></span>
+						<span>Fidelizacion</span></a></li>
+				<li><a th:href="@{/lstpqrs}"><span class="las la-phone"></span>
+						<span>PQRS</span></a></li>
+				<li><a th:href="@{/recursoshumanos}"><span
+						class="las la-user"></span> <span>Recursos Humanos</span></a></li>
+			</ul>
+		</div>
+	</div>
+
+
+	<div class="main-content">
+		<header>
+			<h2>
+				<label for="nav-toggle"> <span class="las la-bars"></span>
+				</label> Usuarios
+			</h2>
+
+			<div class="search-wrapper">
+				<span class="las la-search"></span> <input type="search"
+					placeholder="Buscar aquí" />
+			</div>
+			<div class="user-wrapper">
+				<img src="img/chofe.jpg" width="40px" height="40px" alt="">
+				<div>
+					<h4>Administrador</h4>
+					<small><a th:href="@{/index}">Cerrar Sesion</a></small>
+				</div>
+			</div>
+		</header>
+
+		<main>
+
+			<!--Tabla-->
+
+			<div class="projects">
+				<div class="card">
+
+
+					<div class="container">
+
+						<div class="card-header">
+							<h3>usuarios registrados</h3>
+
+							<div class="form-control">
+
+
+								<div id="content" class="bg-grey w-100">
+                    <section class="bg-title">
+                        <div class="container">
+                            <h2 class="font-weight-bold mb-0">Asignar rol al usuario</h2>
+                        </div>
+                    </section>
+                    <section class="bg-dark py-3">
+                        <form method="POST" th:action="@{/guardarRol}" modelAttribute="searchForm" th:object="${Usuario}">
+
+                            <div class="form-floating col-xs-12 col-sm-8 col-md-9 col-lg-12 ted">
+                                <label for="floatingPassword">Usuario:</label>
+                                <select th:id="usuario" th:field="*{idusuario}" class="form-control" onchange="buscarRolUsuario()">
+                                    <option th:each="usuarioItem : ${lstusuario}" th:value="${usuarioItem.idusuario}" th:text="${usuarioItem.nombreusuario}+' '+${usuarioItem.apellidousuario}"></option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="form-floating col-xs-12 col-sm-8 col-md-9 col-lg-12 ted">
+                                <label for="floatingPassword">Rol:</label>
+                                <select th:id="rol" th:field="*{roles}" class="form-control" >
+                                    <option th:each="rolItem : ${lstrol}" th:value="${rolItem.idrol}" th:text="${rolItem.nombrerol}"></option>
+                                </select>
+                            </div>
+                            <br>
+                            <button id="button"class="btn btn-primary w-100 align-self-center mb-3 col-xs-2 col-sm-2 col-md-1 col-lg-3" type="submit">Guardar</button>
+                            <button class="can btn btn-primary w-100 align-self-center mb-3 col-xs-2 col-sm-2 col-md-1 col-lg-3">Cancelar</button>
+                        </form>
+                    </section>
+                </div>
+
+
+
+
+
+
+
+
+
+
+							</div>
+
+
+
+
+
+						</div>
+
+
+
+					</div>
+
+				</div>
+			</div>
+
+
+
+
+		</main>
+
+	</div>
+
+	<script>
+      function buscarRolUsuario(){            
+                      $.ajax({
+                            url: 'buscarRol',
+                            type: "GET",
+                            data: 'idUsuario=' + $('#usuario').val(),
+                            success: function(data){
+                                 // console.log(data);
+                                  $("#rol").val(data.idrol);
+                            },
+                            error: function() {
+                                 
+                            }
+                        });
+               }
+      
+      
+      
+
+     
+</script>
+	
+
+</body>
+
+</html>

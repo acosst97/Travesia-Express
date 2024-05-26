@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <!-- basic -->
+          <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>Travesia Express</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <link rel="shortcut icon" href="images/logo.png">
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+   </head>
+   <!-- body -->
+   <body class="main-layout">
+      <!-- loader  -->
+      
+      <!-- end loader --> 
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="head_top">
+               <div class="container">
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                       <div class="top-box">
+                        <ul class="sociel_link">
+                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                     </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                       <div class="top-box">
+                         <p>Viaja con Travesia Express, te esperamos </p>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo"> <a href="index.html"><img src="images/logo.png" width="50%" height="50%" alt="logo"/></a> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-7 col-lg-7 col-md-9 col-sm-9">
+                  <div class="menu-area">
+                     <div class="limit-box">
+                        <nav class="main-menu">
+                           <ul class="menu-area-main">
+                              <li> <a th:href="@{index}">Inicio</a> </li>
+                              <li ><a th:href="@{/empleo}">Empleos</a> </li>
+                              <li> <a th:href="@{/productos}">Servicio</a> </li>
+                              <li> <a th:href="@{/lstvehiculos}">vehiculo</a> </li>
+                              <li> <a th:href="@{/registrarpqrs}">Ayuda Usuario</a> </li>
+                               
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                   <li> <a class="buy" th:href="@{/login}">Iniciar Sesion</a></li>
+               </div>
+            </div>
+         </div>
+         <!-- end header inner --> 
+      </header>
+      <!-- end header -->
+       
+
+    <section class="contact-box">
+       <div class="row no-gutters bg-dark">
+           <div class="col-xl-5 col-lg-12 register-bg6">
+            <div class="position-absolute testiomonial p-4">
+                <h3 class="font-weight-bold text-light">Disfruta de las mejores experiencias viajando.</h3>
+                <p class="lead text-light">Buses de nueva y avanzada tecnologia.</p>
+            </div>
+           </div>
+           <div class="col-xl-7 col-lg-12 d-flex">
+                <div class="container align-self-center p-6">
+                    <h1 style="color: #e7c012;" class="font-weight-bold mb-3">Registro de pago de tiquet</h1>
+                    <div class="form-group">
+                        
+                    </div>
+                    <p class="text-muted mb-5">Ingresa la siguiente información para proceder al pago</p>
+
+
+                    <form  method="POST" th:action="@{/guardarventa}" th:object="${venta}">
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">Ingresa tu identificacion</label>
+                            <input type="text" class="form-control"  th:field="*{usuario}">                 
+                        </div>
+                        
+                        <!--  <div class="form-floating col-xs-12 col-sm-8 col-md-9 col-lg-12 ted">
+                        <label for="floatingPassword">detalle:</label>												
+				     	<select class="form-control"  th:field="*{detalleventa}">
+						<option th:each="usuarioItem : ${lstpaquete}" th:value="${usuarioItem.detalleventa}" th:text="${usuarioItem.detalleventa}"></option>
+		                
+					    </select><br>
+						 <div class="form-text text-danger" th:if="${#fields.hasErrors('detalleventa')}" th:errors="*{detalleventa}"></div>
+														
+					    </div>-->
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">Fecha de viaje</label>
+                            <input type="text" class="form-control" th:field="*{detalleventa}" >
+                            <div class="form-text text-danger" th:if="${#fields.hasErrors('detalleventa')}" th:errors="*{detalleventa}"></div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">Fecha de viaje</label>
+                            <input type="date" class="form-control" th:field="*{fechaventa}" >
+                            <div class="form-text text-danger" th:if="${#fields.hasErrors('fechaventa')}" th:errors="*{fechaventa}"></div>
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Total del pago</label>
+                            <input type="text" class="form-control" th:field="*{totalpago}">
+                            <div class="form-text text-danger" th:if="${#fields.hasErrors('totalpago')}" th:errors="*{totalpago}"></div>
+                        </div>
+                          
+
+                        <button type="submit" class="btn btn-primary" value="REGISTRAR" >Enviar</button>
+                    </form>
+                    
+                  
+                </div>
+           </div>
+           
+       </div>
+   </section>
+
+                            
+
+    
+
+    <!-- contact -->
+    
+
+      <!--  footer --> 
+      <footr>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 offset-md-3">
+                     <ul class="sociel">
+                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                     </ul>
+                  </div>
+            </div>
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>contactos</h3>
+                     <ul style="color: #9C9B94;">
+                  <li>hecjgarcia@misena.edu.co</li>
+                  <li>hdacosta10@misena.edu.co</li>
+                  <li>leneanaya@misena.edu.co</li>
+                  <li>joraaguja@misena.edu.co</li>
+               </ul>
+                  </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3 >Informacion adicional</h3>
+                  <h6 style="color: #9C9B94;">En Travesías Express puede encontrar una gran variedad de rutas turísticas. Puedes elegir uno de los destinos turísticos que ofrecemos y comenzar a planificar tus tan anheladas vacaciones ahora.
+                  </h6>
+               </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>Direccion</h3>
+
+                  <h5 style="color: #9C9B94;">Calle 140 #118- 53
+                     
+                  </h5>
+                  </div>
+               </div>
+                 <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12">
+                  <div class="contact">
+                     <h3>Telefono</h3>
+                     <h5 style="color: #9C9B94;">
+                        314 4905189
+                     </h5>
+                  </div>
+               </div>
+            </div>
+         </div>
+            <div class="copyright">
+               <p>Travesia Express 2021 Todos los derechos reservados </p>
+            </div>
+         
+      </div>
+      </footr>
+      <!-- end footer -->
+      <!-- Javascript files--> 
+      <script src="js/jquery.min.js"></script> 
+      <script src="js/popper.min.js"></script> 
+      <script src="js/bootstrap.bundle.min.js"></script> 
+      <script src="js/jquery-3.0.0.min.js"></script> 
+      <script src="js/plugin.js"></script> 
+      
+      <!-- sidebar --> 
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script> 
+      <script src="js/custom.js"></script>
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+      <script>
+         $(document).ready(function(){
+         $(".fancybox").fancybox({
+         openEffect: "none",
+         closeEffect: "none"
+         });
+         
+         $(".zoom").hover(function(){
+         
+         $(this).addClass('transition');
+         }, function(){
+         
+         $(this).removeClass('transition');
+         });
+         });
+         
+      </script>
+      <script>
+         var ps = new PerfectScrollbar('#sidebar');
+      </script>
+       
+   </body>
+</html>

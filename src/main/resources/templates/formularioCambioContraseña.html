@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="shortcut icon" href="#" />      
+        <link rel="stylesheet" th:href="@{/css/bootstrapt.min.css}">  
+        <link rel="stylesheet" th:href="@{/css/estilos3.css}">
+        <link rel="icon" th:href="@{images/favicon.png}" type="image/gif" />
+        <title>Recuperar contraseña</title>  
+    </head>
+    <body>
+        <header letra style="height: 70px">
+            <b>Arca System</b></header> 
+        <div style="height: 30px;"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10">
+                    <div class="card shadow-lg p-3 mb-5 bg-white ">
+                        <div class="card-header"><b>Recuperar contraseña</b></div>
+                        <div class="card-body">
+                            <form id="form1" th:action="@{/ModificarContraseña}" method="post" modelAttribute="idusuario" class="needs-validation" novalidate onsubmit="return validacion();">
+                                <div class="form-row">
+                                    <div class="col-md-8 mb-6">
+                                        <label for="clave">Nueva Contraseña 11</label>
+                                        <input id="clave" name="clave" type="password" class="form-control" >
+                                        <input id="idusuario" name="idusuario" type="hidden" class="form-control"  value="${idusuario}"  >
+                                    </div>
+                                </div>
+                                <a th:href="@{/formregistro}">Ingresa a tu cuenta aquí</a>
+                                <br>
+                                <button class="btn btn-primary btn-large" type="submit">Actualizar</button>
+                            </form>
+                        </div>   
+                    </div>
+                </div>       
+            </div>                  
+        </div>
+        <script src="js/validar3.js"></script>
+        <script src="js/jquery-3.3.1.min.js"></script>    
+        <script src="js/popper.min.js"></script>      
+        <script src="js/bootstrap.min.js"></script>     
+        <script src="js/codigo(2).js"></script>       
+    </body>
+</html>

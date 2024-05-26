@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="shortcut icon" href="img/logo.jpeg">
+    <link rel="stylesheet" href="css/style5.css">
+    <link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand container-fluids">
+            <h2><span > <img width="70%" height="70%" src="img/logo.jpeg" alt=""></span> 
+        </div><br>
+        <!--Secciones-del-tablero-->
+        <div class="sidebar-menu" >
+           <ul>
+                 <li>
+                    <a th:href="@{/inicioDash}" ><span class="las la-home"></span>
+                    <span>Inicio</span></a>
+                </li>
+                <li>
+                  <a th:href="@{/listarventas}" ><span class="las la-history"></span>
+                    <span>Ventas</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstUsuario}" class="active"><span class="las la-user"></span>
+                    <span>Usuarios</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstservicio2}" ><span class="las la-user-injured"></span>
+                    <span>Servicios</span></a>
+                </li>
+                
+              <li>
+                    <a th:href="@{/vehiculos}" ><span class="las la-history"></span>
+                    <span>Vehiculos</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/of1}" ><span class="las la-user-circle"></span>
+                    <span>Fidelizacion</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstpqrs}"><span class="las la-phone"></span>
+                    <span>PQRS</span></a>
+                </li>
+                <li>
+                    <a  th:href="@{/recursoshumanos}"><span class="las la-user"></span>
+                    <span>Recursos Humanos</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Usuarios
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Buscar aquí" />
+            </div>
+            <div class="user-wrapper">
+                <img src="img/chofe.jpg" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Administrador</h4> 
+                     <small ><a th:href="@{/logout}">Cerrar Sesion</a></small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <div class="cards">
+
+                <div class="card-single">
+                    <div>
+                        <h1>5</h1>
+                        <span>Usuarios sin cambios</span>
+                    </div>
+                    <div>
+                       
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>12</h1>
+                        <span>Usuarios habilitados</span>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                        <h1>4</h1>
+                        <span>Usuarios inhabilitados</span>
+                    </div>
+                    <div>
+                        
+                    </div>
+                </div>
+
+                <div class="card-single">
+                    <div>
+                       
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <!--Tabla-->
+            
+                <div class="projects">
+                    <div class="card">
+                        
+
+        <div class="container">
+             
+            <div class="card-header">
+                            <h3>usuarios registrados </h3>
+
+                            
+                           
+                        
+          
+             <center><a th:href="@{/registrousuario2}"><button type="button" class="btn btn-warning">Añadir nuevo cliente </button></a></center>
+            
+            <a th:href="@{/pdf}" class="btn btn-danger" > exportar a pdf </a>
+            
+            <a th:href="@{/exel}" class="btn btn-success"  > exportar a exel </a>
+        
+        </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>                                          
+                        <th scope="col">nombre</th>
+                        <th scope="col">apellido</th>  
+                        <th scope="col">edad</th>  
+                        <th scope="col">telefono</th> 
+                        <th scope="col">correo</th>                       
+                        <th scope="col">direccion</th> 
+                        <th scope="col">acciones</th> 
+                       
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr th:each="Usuario : ${lstUsuario}">
+                        <th scope="row" th:text="${Usuario.idusuario}" ></th>
+                        <td th:text="${Usuario.nombreusuario}"></td>
+                        <td th:text="${Usuario.apellidousuario}"></td>
+                        <td th:text="${Usuario.edad}"></td>
+                        <td th:text="${Usuario.telefono}"></td>
+                        <td th:text="${Usuario.correo}"></td>
+                       
+                        <td th:text="${Usuario.direccion}"></td> 
+                        
+                        
+                        <td><a
+										th:href="@{/modificarusuario(idusuario=${Usuario.idusuario})}">
+											<i class="bi bi-pencil-square  btn btn-warning"> 
+									</a></i> </td>
+                        
+                      <!--  <td><a  class="btn btn-danger" th:href="@{/eliminarCliente(id=${clienteItem.id})}" >Eliminar</a> <br> 
+                            <a  class="btn btn-warning" th:href="@{/modificarCliente(idCliente=${clienteItem.id})}" >  Modificar</a></td>-->
+                    </tr>
+                   
+                </tbody>
+            </table> 
+   
+
+        </div>
+
+     </div>
+                </div>
+
+               
+                
+           
+        </main>
+
+    </div>
+
+<script type=""></script>
+
+</body>
+
+</html>

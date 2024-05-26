@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width,initial-scale=1,maximum-scale=1">
+<title>Administrador</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
+	integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay"
+	crossorigin="anonymous">
+
+<link rel="stylesheet"
+	href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+<link rel="shortcut icon" href="img/logo.jpeg">
+<link rel="stylesheet" href="css/style5.css">
+<link rel="stylesheet" href="estilos.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+<body>
+
+	<input type="checkbox" id="nav-toggle">
+	<div class="sidebar">
+		<div class="sidebar-brand container-fluids">
+			<h2>
+				<span> <img width="70%" height="70%" src="img/logo.jpeg"
+					alt=""></span>
+		</div>
+		<br>
+		<!--Secciones-del-tablero-->
+		<div class="sidebar-menu">
+
+			<ul>
+                 <li>
+                    <a th:href="@{/inicioDash}" ><span class="las la-home"></span>
+                    <span>Inicio</span></a>
+                </li>
+                <li>
+                  <a th:href="@{/listarventas}" ><span class="las la-history"></span>
+                    <span>Ventas</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstUsuario}"><span class="las la-user"></span>
+                    <span>Usuarios</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstservicio2}" ><span class="las la-user-injured"></span>
+                    <span>Servicios</span></a>
+                </li>
+                
+              <li>
+                    <a th:href="@{/vehiculos}" class="active"><span class="las la-history"></span>
+                    <span>Vehiculos</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/of1}" ><span class="las la-user-circle"></span>
+                    <span>Fidelizacion</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstpqrs}"><span class="las la-phone"></span>
+                    <span>PQRS</span></a>
+                </li>
+                <li>
+                    <a  th:href="@{/recursoshumanos}"><span class="las la-user"></span>
+                    <span>Recursos Humanos</span></a>
+                </li>
+            </ul>
+		</div>
+	</div>
+
+	<div class="main-content">
+		<header>
+			<h2>
+				<label for="nav-toggle"> <span class="las la-bars"></span>
+				</label> Vehiculos
+			</h2>
+
+			<div class="search-wrapper">
+				<span class="las la-search"></span> <input type="search"
+					placeholder="Buscar aquí" />
+			</div>
+			<div class="user-wrapper">
+				<img src="img/chofe.jpg" width="40px" height="40px" alt="">
+				<div>
+					<h4>Administrador</h4>
+					<small><a th:href="@{/index}">Cerrar Sesion</a></small>
+				</div>
+			</div>
+		</header>
+
+		<main>
+			<div class="cards">
+
+				<div class="card-single">
+					<div>
+						<h1>4</h1>
+						<span>Reportes Nuevos</span>
+					</div>
+					<div>
+						<span class=""></span>
+					</div>
+				</div>
+
+
+
+				<div class="card-single">
+					<div>
+						<h1>7</h1>
+						<span>Reportes Revisados</span>
+					</div>
+					<div></div>
+				</div>
+
+				<div class="card-single">
+					<div>
+						<h1>11</h1>
+						<span>Total de Reportes</span>
+					</div>
+					<div></div>
+				</div>
+			</div>
+
+
+			<div class="card-header">
+                  <h3>Vehiculos</h3>
+                  
+				<center>
+					<a th:href="@{/regvehiculo}"><button type="button"
+							class="btn btn-warning" with="100%">registrar vehiculo</button></a>
+				</center>
+				
+
+            <a th:href="@{/pdfreporte}" class="btn btn-danger" > exportar a pdf </a>
+            
+            <a th:href="@{/exelreporte}" class="btn btn-success"  > exportar a exel </a>
+            
+            <a  th:href="@{/visreporte}" class="btn btn-info" > reportes  
+									</a>
+
+			</div>
+			
+		<!-- -	-->
+
+			<!--Tabla-->
+			
+		<!-- -		<form action="/uploadFile1" enctype="multipart/form-data" method="post" >
+                <button class="btn btn-secondary " type="submit">Importar</button>
+                <input class="form-input" type="file" name="file">
+            </form>-->
+			<div  class="table-responsive"   >
+				<div class="container-fluid">
+					<div class="card" >
+
+						<table id="example"  class="display" style="width:100%">
+							<thead>
+								<tr>
+									<td>matricula</td>
+									<td>modelo</td>
+									<td>tipo de bvehiculo</td>
+									<td>capacidad</td>
+									<td>tecnomecanica</td>
+									<td>Estado</td>
+
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="vehiculoItem : ${lstvehiculo}">
+									<td th:text="${vehiculoItem.matriculavehiculo}"></td>
+									<td th:text="${vehiculoItem.modelo}"></td>
+									<td th:text="${vehiculoItem.tipovehiculo}"></td>
+									<td th:text="${vehiculoItem.capacidad}"></td>
+									<td th:text="${vehiculoItem.tecnicomecanica}"></td>
+
+
+
+
+
+									<td><a
+										th:href="@{/modificarVehiculo(matriculavehiculo=${vehiculoItem.matriculavehiculo})}">
+											<i class="bi bi-pencil-square  btn btn-warning">
+									</a></i> <a
+										th:onclick="eliminar([[${vehiculoItem.matriculavehiculo}]])">
+											<i class="bi bi-trash3-fill btn btn-danger"></i>
+									
+									
+									</td>
+									
+									
+
+								</tr>
+								<!-- 	<a
+										th:href="@{/eliminarvehiculo(matriculavehiculo=${vehiculoItem.matriculavehiculo})}">
+											<i class="bi bi-trash3-fill btn btn-danger">-->
+								</a>
+								</i>
+							</tbody>
+						</table>
+
+
+
+					</div>
+
+					<div class="card-header">
+						<h3>Reportes registrados</h3>
+
+
+
+						
+
+					</div>
+
+					
+
+
+				</div>
+
+			</div>
+			<br>
+
+		</main>
+		
+		
+		<script src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"></script>
+
+		<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+		<script src="js/funcion.js"></script>
+
+		
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+
+		<!-- datatables JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/fixedheader/3.1.6/js/dataTables.fixedHeader.min.js"></script> 
+
+<script>
+let temp = $("#btn1").clone();
+$("#btn1").click(function(){
+    $("#btn1").after(temp);
+});
+
+$(document).ready(function(){
+    var table = $('#example').DataTable({
+       orderCellsTop: true,
+       fixedHeader: true 
+    });
+
+    //Creamos una fila en el head de la tabla y lo clonamos para cada columna
+    $('#example thead tr').clone(true).appendTo( '#example thead' );
+
+    $('#example thead tr:eq(1) th').each( function (i) {
+        var title = $(this).text(); //es el nombre de la columna
+        $(this).html( '<input type="text" placeholder="Search...'+title+'" />' );
+ 
+        $( 'input', this ).on( 'keyup change', function () {
+            if ( table.column(i).search() !== this.value ) {
+                table
+                    .column(i)
+                    .search( this.value )
+                    .draw();
+            }
+        } );
+    } );   
+});
+
+
+ 
+
+</script>
+		
+		
+		<script type="text/javascript" src="js/datatables.min.js"></script>
+
+
+		<!-- para usar botones en datatables JS -->
+		<script src="js/dataTables.buttons.min.js"></script>
+		<script src="js/jszip.min.js"></script>
+		<script src="js/pdfmake.min.js"></script>
+		<script src="js/vfs_fonts.js"></script>
+		<script src="js/buttons.html5.min.js"></script>
+		<!-- código JS propìo-->
+		<script type="text/javascript" src="js/main.js"></script>
+		
+	<script type="text/javascript">
+	function reporte(){
+	
+	var fecha1 = document.getElementById("fecha1").value;
+	var fecha2 = document.getElementById("fecha2").value;
+	var tip0 = document.getElementById("tip0").value;
+	
+	
+	window.open("http://localhost:8085/report/ventas/download?fechainicio="+fecha1+"&fechafin="+fecha2+"&tipo="+tip0);
+	
+}
+
+
+</script>
+		
+		
+		
+		
+		
+</body>
+
+</html>

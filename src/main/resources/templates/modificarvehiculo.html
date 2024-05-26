@@ -1,0 +1,169 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+    <title>Administrador</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="shortcut icon" href="img/logo.jpeg">
+    <link rel="stylesheet" href="css/style5.css">
+     <link rel="stylesheet" href="css/style4.css"> 
+</head>
+
+<body>
+
+    <input type="checkbox" id="nav-toggle">
+    <div class="sidebar">
+        <div class="sidebar-brand container-fluids">
+            <h2><span > <img width="70%" height="70%" src="img/logo.jpeg" alt=""></span> 
+        </div><br>
+        <!--Secciones-del-tablero-->
+        <div class="sidebar-menu">
+           <ul>
+                <li>
+                    <a th:href="@{/inicioDash}"><span class="las la-home"></span>
+                    <span>Inicio</span></a>
+                </li>
+                <li>
+                  <a th:href="@{/inicio}"><span class="las la-history"></span>
+                    <span>Ventas</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/listarcliente}"><span class="las la-user"></span>
+                    <span>Usuarios</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/lstservicio2}"><span class="las la-user-injured"></span>
+                    <span>Servicios</span></a>
+                </li>
+              <li>
+                    <a th:href="@{/Vehiculos}" ><span class="las la-history"></span>
+                    <span>Vehiculos</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/of1}" class="active"><span class="las la-user-circle"></span>
+                    <span>Fidelizacion</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/listarPqrs}"><span class="las la-phone"></span>
+                    <span>PQRS</span></a>
+                </li>
+                <li>
+                    <a th:href="@{/recursoshumanos}"><span class="las la-user"></span>
+                    <span>Recursos Humanos</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <h2>
+                <label for="nav-toggle">
+                    <span class="las la-bars"></span>
+                </label> Fidelizacion
+            </h2>
+
+            <div class="search-wrapper">
+                <span class="las la-search"></span>
+                <input type="search" placeholder="Buscar aquí" />
+            </div>
+            <div class="user-wrapper">
+                <img src="img/chofe.jpg" width="40px" height="40px" alt="">
+                <div>
+                    <h4>Administrador</h4>
+                    <small ><a th:href="@{/index}">Cerrar Sesion</a></small>
+                </div>
+            </div>
+        </header>
+
+        <main>
+      
+            <section class="contact-box">
+       <div class="row no-gutters bg-dark">
+           <div class="col-xl-5 col-lg-12 register-bg2">
+            <div class="position-absolute testiomonial p-4">
+                <h3 class="font-weight-bold text-light"> viaja comodamente.</h3>
+                <p class="lead text-light">Buses de nueva y avanzada tecnologia.</p>
+            </div>
+           </div>
+           <div class="col-xl-7 col-lg-12 d-flex">
+                <div class="container align-self-center p-6">
+                    <h1 style="color: #e7c012;" class="font-weight-bold mb-3">modifica los datos</h1>
+                    <div class="form-group">
+                        
+                    </div>
+                    
+
+                    
+                    <h1>modifica la informacion de tu vehiculo</h1>
+                    <form  method="POST" th:action="@{/editarvehiculo}" th:object="${vehiculo}">
+                        <div class="mb-3">
+                            <label  class="form-label">matricula</label>
+                            <input type="text" class="form-control" th:field="*{matriculavehiculo}">
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">modelo</label>
+                            <input type="text" class="form-control"  th:field="*{modelo}" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">tipo de vehiculo:</label>
+                            <input type="text" class="form-control" th:field="*{tipovehiculo}" >
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">capacidad</label>
+                            <input type="text" class="form-control" th:field="*{capacidad}" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">tarjeta de operacion:</label>
+                            <input type="text" class="form-control" th:field="*{tarjetaoperacion}" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">tarjeta de propiedad:</label>
+                            <input type="text" class="form-control" th:field="*{tarjetapropiedad}" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">soat:</label>
+                            <input type="text" class="form-control" th:field="*{soat}" >
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label  class="form-label">tarjeta de operacion:</label>
+                            <input type="text" class="form-control" th:field="*{tecnicomecanica}">
+                        </div>
+
+
+                        
+
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <br>
+                        
+                        <input type="reset" value="CANCELAR" class="btn btn-danger">
+                     </div>
+                    </form>
+                    
+                     </div>
+               </div>
+           </div>
+   </section>
+         
+             <!-- Optional JavaScript -->
+             <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+             <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+             <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+  
+
+</body>
+
+</html>
